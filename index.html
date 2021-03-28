@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random numbers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .number-box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .number-box span {
+            font-size: 2em;
+        }
+
+        .number-box h1 {
+            font-size: 15em;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="number-box">
+    </div>
+    <script type="text/javascript">
+
+        const numberBox = document.querySelector('.number-box');
+        let inputArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        function giveMeRandomNumber(numberArray, maxLen) {
+            inputArray = inputArray.sort(function() { return Math.random() - 0.5 });
+            inputArray = inputArray.slice(0, maxLen).toString().replace(/,/g, '');
+            
+            return inputArray;
+        }
+        
+        numberBox.innerHTML = `
+            <span>Combinación:</span>
+            <h1>${giveMeRandomNumber(inputArray, 3)}</h1>
+        `;
+    </script>
+</body>
+</html>
